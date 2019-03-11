@@ -1,0 +1,18 @@
+<p>
+  Monografias em <strong><%= @college.name %></strong>
+</p>
+<% if @monos.empty? %>
+  <em>(Sem monografias)</em>
+<% end %>
+<ul>
+  <% @monos.each do |mono|%>
+    <li><%= link_to mono.title, mono %></li>
+  <% end %>
+</ul>
+<div>
+  <%= link_to 'Edit', edit_college_path(@college), class: "btn btn-primary btn-xs" %>
+  <%= link_to 'Destroy', @college, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %>
+</div>
+<div style="text-align: center;">
+  <%= will_paginate @monos, renderer: BootstrapPagination::Rails %>
+</div>

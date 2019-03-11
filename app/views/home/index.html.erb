@@ -1,0 +1,23 @@
+<div class="jumbotron" style="text-align: center;">
+  <h1>
+    Silver mist suffused the deck of the ship.
+  </h1>
+  <p>
+    Mist enveloped the ship three hours out from port.
+  </p>
+</div>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <%= render "shared/search", value: '' %>
+  </div>
+</div>
+<hr/>
+<h3>Uploads mais recentes</h3>
+<ul>
+  <% @monos.each do |mono| %>
+    <li><%= link_to mono.title, mono_path(id: mono.id) %></li>
+  <% end %>
+</ul>
+<div style="text-align: center;">
+  <%= will_paginate @monos, renderer: BootstrapPagination::Rails %>
+</div>

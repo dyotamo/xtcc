@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <%= form_with(model: college, local: true) do |form| %>
+      <%= render "shared/error_messages", model: college %>
+      <div class="field form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
+      <div class="actions form-group">
+        <%= form.submit class: "btn btn-primary"%>
+      </div>
+    <% end %>
+  </div>
+</div>

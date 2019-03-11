@@ -1,0 +1,9 @@
+<ul>
+  <% @courses.each do |course|%>
+    <li><%= link_to course.name, course %></li>
+  <% end %>
+</ul>
+<%= link_to 'Add', new_course_path, class: "btn btn-primary btn-xs" %>
+<div style="text-align: center;">
+  <%= will_paginate @courses, renderer: BootstrapPagination::Rails %>
+</div>
