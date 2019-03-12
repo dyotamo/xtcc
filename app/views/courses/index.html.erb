@@ -1,9 +1,16 @@
-<ul>
-  <% @courses.each do |course|%>
-    <li><%= link_to course.name, course %></li>
-  <% end %>
-</ul>
-<%= link_to 'Add', new_course_path, class: "btn btn-primary btn-xs" %>
-<div style="text-align: center;">
-  <%= will_paginate @courses, renderer: BootstrapPagination::Rails %>
+<% title "Todos os Cursos" %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= link_to 'Add', new_course_path, class: "btn btn-primary btn-xs" %>
+  </div>
+  <div class="panel-body">
+    <ul>
+      <% @courses.each do |course|%>
+        <li><%= link_to course.name, course %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div style="text-align: center;" class="panel-footer">
+    <%= will_paginate @courses, renderer: BootstrapPagination::Rails %>
+  </div>
 </div>

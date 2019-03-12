@@ -1,3 +1,4 @@
+<% title "Bem-vindo" %>
 <div class="jumbotron" style="text-align: center;">
   <h1>
     Silver mist suffused the deck of the ship.
@@ -17,7 +18,5 @@
   <% @monos.each do |mono| %>
     <li><%= link_to mono.title, mono_path(id: mono.id) %></li>
   <% end %>
+  <li><%= link_to '...', monos_path %></li>
 </ul>
-<div style="text-align: center;">
-  <%= will_paginate @monos, renderer: BootstrapPagination::Rails %>
-</div>

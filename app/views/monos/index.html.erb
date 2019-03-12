@@ -1,9 +1,16 @@
-<ul>
-  <% @monos.each do |mono|%>
-    <li><%= link_to mono.title, mono %></li>
-  <% end %>
-</ul>
-<%= link_to 'Add', new_mono_path, class: "btn btn-primary btn-xs" %>
-<div style="text-align: center;">
-  <%= will_paginate @monos, renderer: BootstrapPagination::Rails %>
+<% title "Todos os TCCs" %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= link_to 'Add', new_mono_path, class: "btn btn-primary btn-xs" %>
+  </div>
+  <div class="panel-body">
+    <ul>
+      <% @monos.each do |mono|%>
+        <li><%= link_to mono.title, mono %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div style="text-align: center;" class="panel-footer">
+    <%= will_paginate @monos, renderer: BootstrapPagination::Rails %>
+  </div>
 </div>

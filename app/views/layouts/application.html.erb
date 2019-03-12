@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>xyzs by dyotamo</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body class="container">
-    <%= render "shared/navbar" %>
-    <% if notice %>
-      <div class="alert alert-info">
-        <%= notice %>
-      </div>
-    <% end %>
-    <%= yield %>
-    <%= render "shared/footer" %>
-  </body>
-</html>
+    <title>
+      <%= if content_for?(:title) then yield(:title) + ' | ' end %>
+        xTCC
+      </title>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body class="container">
+      <%= render "shared/navbar" %>
+      <% if notice %>
+        <div class="alert alert-info">
+          <%= notice %>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="alert alert-danger">
+          <%= alert %>
+        </div>
+      <% end %>
+      <%= yield %>
+      <%= render "shared/footer" %>
+    </body>
+  </html>

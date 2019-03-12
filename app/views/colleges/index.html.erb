@@ -1,9 +1,16 @@
-<ul>
-  <% @colleges.each do |college|%>
-    <li><%= link_to college.name, college %></li>
-  <% end %>
-</ul>
-<%= link_to 'Add', new_college_path, class: "btn btn-primary btn-xs" %>
-<div style="text-align: center;">
-  <%= will_paginate @colleges, renderer: BootstrapPagination::Rails %>
+<% title "Todas as Instituições" %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= link_to 'Add', new_college_path, class: "btn btn-primary btn-xs" %>
+  </div>
+  <div class="panel-body">
+    <ul>
+      <% @colleges.each do |college|%>
+        <li><%= link_to college.name, college %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div style="text-align: center;" class="panel-footer">
+    <%= will_paginate @colleges, renderer: BootstrapPagination::Rails %>
+  </div>
 </div>
