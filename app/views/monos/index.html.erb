@@ -1,8 +1,10 @@
 <% title "Todos os TCCs" %>
 <div class="panel panel-default">
-  <div class="panel-heading">
-    <%= link_to 'Add', new_mono_path, class: "btn btn-primary btn-xs" %>
-  </div>
+  <% if current_user %>
+    <div class="panel-heading">
+      <%= link_to 'Novo Upload', new_mono_path, class: "btn btn-primary btn-xs" %>
+    </div>
+  <% end %>
   <div class="panel-body">
     <ul>
       <% @monos.each do |mono|%>

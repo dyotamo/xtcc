@@ -1,18 +1,25 @@
 <% title "Todos os Pedidos de Partilha" %>
 <div class="panel panel-default">
+  <div class="panel-heading">
+    Pedidos não atendidos (<%= @requisitions.count %>)
+  </div>
   <div class="panel-body">
-    <table class="table table-condensed">
-      <tbody>
-        <% @requisitions.each do |requisition| %>
-          <tr>
-            <td><%= link_to requisition.url, requisition.url, target: "_blank" %></td>
-            <td><%= link_to 'Wipe', requisition, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <% if @requisitions.empty? %>
+    (Sem pedidos)
+    <% else %>
+      <table class="table">
+        <tbody>
+          <% @requisitions.each do |requisition| %>
+            <tr>
+              <td><%= link_to requisition.url, requisition.url, target: "_blank" %></td>
+              <td><%= link_to 'Eliminar', requisition, method: :delete, data: { confirm: 'Eliminar de verdade?' }, class: "btn btn-danger btn-xs" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
   </div>
   <div class="panel-footer">
-    <%= link_to 'New Requisition', new_requisition_path, class: "btn btn-primary btn-xs" %>
+    <%= link_to 'Nova Requisição', new_requisition_path, class: "btn btn-primary btn-xs" %>
   </div>
 </div>

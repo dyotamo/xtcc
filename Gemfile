@@ -38,7 +38,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   # Use sqlite3 as the database for Active Record
-  gem "sqlite3", '~> 1.3.6'
+  gem "sqlite3", "~> 1.3.6"
 end
 
 group :development do
@@ -69,11 +69,14 @@ gem "jquery-rails", "~> 4.3.3"
 gem "bootswatch-rails", "~> 3.3.5"
 
 # Faker
-gem 'faker', '~> 1.9.3'
+gem "faker", "~> 1.9.3"
 
 # Pagination
-gem 'will_paginate', '~> 3.1.0'
-gem 'will_paginate-bootstrap', '~> 1.0.2'
+gem "will_paginate", "~> 3.1.0"
+gem "will_paginate-bootstrap", "~> 1.0.2"
 
 # Faker
-gem 'faker', '~> 1.9.3'
+gem "faker", "~> 1.9.3"
+
+# Devise
+gem "devise", "~> 4.6.1"

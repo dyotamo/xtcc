@@ -1,8 +1,8 @@
 require "uri"
 
 class Requisition < ApplicationRecord
-  validates_presence_of :url
   validate :valid_url
+  # validates_presence_of :url
 
   private
 

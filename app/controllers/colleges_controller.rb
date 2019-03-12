@@ -1,4 +1,5 @@
 class CollegesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_college, only: [:show, :edit, :update, :destroy]
 
   # GET /colleges
@@ -29,7 +30,7 @@ class CollegesController < ApplicationController
 
     respond_to do |format|
       if @college.save
-        format.html { redirect_to @college, notice: 'College was successfully created.' }
+        format.html { redirect_to @college, notice: "College was successfully created." }
         format.json { render :show, status: :created, location: @college }
       else
         format.html { render :new }
@@ -43,7 +44,7 @@ class CollegesController < ApplicationController
   def update
     respond_to do |format|
       if @college.update(college_params)
-        format.html { redirect_to @college, notice: 'College was successfully updated.' }
+        format.html { redirect_to @college, notice: "College was successfully updated." }
         format.json { render :show, status: :ok, location: @college }
       else
         format.html { render :edit }
@@ -57,19 +58,20 @@ class CollegesController < ApplicationController
   def destroy
     @college.destroy
     respond_to do |format|
-      format.html { redirect_to colleges_url, notice: 'College was successfully destroyed.' }
+      format.html { redirect_to colleges_url, notice: "College was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_college
-      @college = College.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def college_params
-      params.require(:college).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_college
+    @college = College.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def college_params
+    params.require(:college).permit(:name)
+  end
 end

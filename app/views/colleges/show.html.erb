@@ -2,8 +2,10 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     Monografias em <strong><%= @college.name %></strong>
-    <%= link_to 'Edit', edit_college_path(@college), class: "btn btn-primary btn-xs" %>
-    <%= link_to 'Wipe', @college, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %>
+    <% if current_user %>
+      <%= link_to 'Editar', edit_college_path(@college), class: "btn btn-primary btn-xs" %>
+      <%= link_to 'Eliminar', @college, method: :delete, data: { confirm: 'Eliminar de verdade?' }, class: "btn btn-danger btn-xs" %>
+    <% end %>
   </div>
   <div class="panel-body">
     <% if @monos.empty? %>
