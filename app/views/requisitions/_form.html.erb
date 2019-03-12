@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <%= form_with(model: @requisition, local: true) do |form| %>
+      <%= render "shared/error_messages", model: @requisition %>
+      <div class="input-group form-group">
+        <%= form.text_field :url, placeholder: "Link directo da monografia a partilhar...", class: "form-control" %>
+        <span class="input-group-btn">
+          <%= form.submit 'Request', class: "btn btn-primary" %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+</div>
