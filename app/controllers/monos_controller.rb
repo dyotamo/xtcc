@@ -5,7 +5,8 @@ class MonosController < ApplicationController
   # GET /monos
   # GET /monos.json
   def index
-    @monos = Mono.order(:created_at).reverse_order.paginate(:page => params[:page], :per_page => 10)
+    @monos = Mono.order(:created_at).reverse_order.paginate(:page => params[:page],
+                                                            :per_page => 10)
   end
 
   # GET /monos/1
@@ -26,8 +27,6 @@ class MonosController < ApplicationController
   # POST /monos.json
   def create
     @mono = Mono.new(mono_params)
-
-    # Who uploaded
     @mono.user = current_user
 
     respond_to do |format|
@@ -44,6 +43,7 @@ class MonosController < ApplicationController
   # PATCH/PUT /monos/1
   # PATCH/PUT /monos/1.json
   def update
+    @mono.user = current_user
     respond_to do |format|
       if @mono.update(mono_params)
         format.html { redirect_to @mono, notice: "Mono was successfully updated." }
@@ -75,6 +75,6 @@ class MonosController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def mono_params
     params.require(:mono).permit(:title, :year, :author, :abstract,
-                                 :college_id, :course_id, :document)
+                                 :college_id, :course_id, :document, :user)
   end
 end

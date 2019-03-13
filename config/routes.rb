@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root      "home#index"
-  
-  get       "/about",  to: "pages#about", as: "about"
-  get       "/search", to: "search#view", as: "search"
+  root       "home#index"
 
-  resources :monos
-  resources :colleges
-  resources :courses
-  resources :requisitions
+  get        "/about",      to: "pages#about", as: "about"
+  get        "/search",     to: "search#view", as: "search"
+
+  resources  :monos,        path: "tccs"
+  resources  :colleges
+  resources  :courses
+  resources  :requisitions, path: "requests"
+
+  devise_for :users
 end
