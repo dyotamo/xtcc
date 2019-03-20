@@ -5,8 +5,15 @@ class MonosController < ApplicationController
   # GET /monos
   # GET /monos.json
   def index
-    @monos = Mono.order(:created_at).reverse_order.paginate(:page => params[:page],
-                                                            :per_page => 10)
+    if Mono.column_names.include?(params[:sort])
+      sort = params[:sort]
+    else
+      sort = :created_at
+    end
+
+    @monos = Mono.order(sort)
+      .reverse_order
+      .paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /monos/1
@@ -28,6 +35,7 @@ class MonosController < ApplicationController
   def create
     @mono = Mono.new(mono_params)
     @mono.user = current_user
+    @mono.counter = 0
 
     respond_to do |format|
       if @mono.save

@@ -4,15 +4,13 @@
 @import "bootstrap-sprockets";
 
 // Import cerulean variables
-@import "bootswatch/yeti/variables";
+@import "bootswatch/flatly/variables";
 
 // Then bootstrap itself
 @import "bootstrap";
 
 // And finally bootswatch style itself
-@import "bootswatch/yeti/bootswatch";
-
-@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import "bootswatch/flatly/bootswatch";
 
 * {
     font-family: Ubuntu, sans-serif;

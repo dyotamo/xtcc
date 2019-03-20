@@ -5,6 +5,7 @@ class CreateMonos < ActiveRecord::Migration[5.2]
       t.integer :year
       t.string :author
       t.text :abstract
+      t.integer :counter, default: 0
 
       t.timestamps
     end

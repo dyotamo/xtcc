@@ -1,3 +1,26 @@
-<% title "Resultados de Pesquisa" %>
-<h1>Search#view</h1>
-<p>Find me in app/views/search/view.html.erb</p>
+<div class="row">
+  <div class="col-md-6">
+    <%= render "shared/search", value: @text %>
+    <% if @results.empty? %>
+      <p>Resultados não encontrados para <strong><%= @text %></strong></p>
+    <% else %>
+      <p>Resultados para <strong><%= @text %></strong> (<%= @results.count %>):</p>
+      <hr/>
+    <% end %>
+    <% @results.each do |mono| %>
+      <div style="margin-bottom: 20px;">
+        <h4>
+          <%= link_to mono.title, mono_path(id: mono.id) %>
+        </h4>
+        <em>
+          <% if !mono.abstract.empty? %>
+            <%= mono.abstract %>
+          <% else %>
+            (No description) 
+          <% end %>
+        </em>
+      </div>
+    <% end %>
+    <%= will_paginate @results, renderer: BootstrapPagination::Rails %>
+  </div>
+</div>
