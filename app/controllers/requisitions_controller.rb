@@ -1,5 +1,5 @@
 class RequisitionsController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :show, :edit, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :show, :edit, :update, :destroy]
   before_action :set_requisition, only: [:show, :edit, :update, :destroy]
 
   # GET /requisitions
@@ -30,7 +30,7 @@ class RequisitionsController < ApplicationController
     respond_to do |format|
       if @requisition.save
         # TODO dependendo da pessoa logada, ou mantém o redirect ou manda ao root
-        format.html { redirect_to requisitions_url, notice: "Requisition was successfully created." }
+        format.html { redirect_to root_path, notice: "Requisition was successfully created." }
         format.json { render :show, status: :created, location: @requisition }
       else
         format.html { render :new }
