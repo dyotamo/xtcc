@@ -1,10 +1,10 @@
 <div class="row">
   <div class="col-md-6">
-    <%= render "shared/search", value: @text %>
+    <%= render "shared/search", value: @args %>
     <% if @results.empty? %>
-      <p>Resultados não encontrados para <strong><%= @text %></strong></p>
+      <p>Resultados não encontrados para <strong><%= @args %></strong></p>
     <% else %>
-      <p>Resultados para <strong><%= @text %></strong> (<%= @results.count %>):</p>
+      <p>Resultados para <strong><%= @args %></strong> (<%= @results.count %>):</p>
       <hr/>
     <% end %>
     <% @results.each do |mono| %>

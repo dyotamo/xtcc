@@ -1,6 +1,6 @@
 <%= form_for(:search, url: search_path, method: :get) do |f| %>
   <div class="input-group form-group">
-    <%= f.text_field :text, placeholder: "Palavras-chaves da monografia...", value: value, class: "form-control" %>
+    <%= f.text_field :args, placeholder: "Palavras-chaves da monografia...", value: value, class: "form-control" %>
     <span class="input-group-btn">
       <%= f.submit 'Pesquisar', class: "btn btn-default" %>
     </span>
