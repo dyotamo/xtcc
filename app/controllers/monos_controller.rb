@@ -39,6 +39,9 @@ class MonosController < ApplicationController
 
     respond_to do |format|
       if @mono.save
+        # Remove requisition object
+        Requisition.find_by(url: @mono.url).destroy
+
         format.html { redirect_to @mono, notice: "Mono was successfully created." }
         format.json { render :show, status: :created, location: @mono }
       else
@@ -82,7 +85,7 @@ class MonosController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def mono_params
-    params.require(:mono).permit(:title, :year, :author, :abstract,
-                                 :college_id, :course_id, :document, :user)
+    params.require(:mono).permit(:title, :year, :author, :abstract, :url,
+                                 :college_id, :course_id)
   end
 end

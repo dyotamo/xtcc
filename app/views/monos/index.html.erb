@@ -1,4 +1,7 @@
 <% title "Todos os TCCs" %>
+<% if @monos.empty? %>
+  <h3>0 Trabalhos cadastrados</h3>
+<% end %>
 <div class="panel panel-default">
   <% if current_user %>
     <div class="panel-heading">

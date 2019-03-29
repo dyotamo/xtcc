@@ -27,8 +27,8 @@
         <%= form.text_area :abstract, class: "form-control" %>
       </div>
       <div class="field form-group">
-        <%= form.label :document %>
-        <%= form.file_field :document %>
+        <%= form.label :url %>
+        <%= form.select :url, Requisition.all.collect {|r| [ r.url, r.url ] }, { include_blank: false}, {class: "form-control"} %>
       </div>
       <div class="actions form-group">
         <%= form.submit class: "btn btn-primary"%>
