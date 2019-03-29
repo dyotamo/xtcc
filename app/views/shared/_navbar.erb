@@ -40,7 +40,6 @@
               <li><%= link_to 'Solicitações Feitas', requisitions_path %></li>
             <% else %>
               <li><%= link_to 'Entrar', new_user_session_path %></li>
-              <li><%= link_to 'Seja Membro', new_user_registration_path %></li>
             <% end %>
             <% if current_user %>
               <li role="presentation" class="divider"></li>
