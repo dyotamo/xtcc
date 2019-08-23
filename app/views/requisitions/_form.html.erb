@@ -3,9 +3,9 @@
     <%= form_with(model: @requisition, local: true) do |form| %>
       <%= render "shared/error_messages", model: @requisition %>
       <div class="input-group form-group">
-        <%= form.text_field :url, class: "form-control", placeholder: "Insira a url aqui..." %>
+        <%= form.text_field :url, class: "form-control", placeholder: "Insira a link online do trabalho aqui..." %>
         <span class="input-group-btn">
-          <%= form.submit 'Request', class: "btn btn-default" %>
+          <%= form.submit 'Solicitar', class: "btn btn-default" %>
         </span>
       </div>
     <% end %>

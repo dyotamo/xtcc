@@ -13,7 +13,7 @@ class MonosController < ApplicationController
 
     @monos = Mono.order(sort)
       .reverse_order
-      .paginate(:page => params[:page], :per_page => 10)
+      .paginate(:page => params[:page], :per_page => 20)
   end
 
   # GET /monos/1
@@ -55,6 +55,7 @@ class MonosController < ApplicationController
   # PATCH/PUT /monos/1.json
   def update
     @mono.user = current_user
+
     respond_to do |format|
       if @mono.update(mono_params)
         format.html { redirect_to @mono, notice: "Mono was successfully updated." }

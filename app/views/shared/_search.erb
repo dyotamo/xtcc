@@ -2,7 +2,9 @@
   <div class="input-group form-group">
     <%= f.text_field :args, placeholder: "Palavras-chaves da monografia...", value: value, class: "form-control" %>
     <span class="input-group-btn">
-      <%= f.submit 'Pesquisar', class: "btn btn-default" %>
+      <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+        <span class="glyphicon glyphicon-search"></span>
+      <% end %>
     </span>
   </div>
 <% end %>

@@ -1,4 +1,5 @@
-// Example using 'Cerulean' bootswatch
+@import url("https://fonts.googleapis.com/css?family=PT+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
 //Import bootstrap-sprockets
 @import "bootstrap-sprockets";
@@ -13,8 +14,12 @@
 @import "bootswatch/united/bootswatch";
 
 .field_with_errors {
-    @extend .has-error;
-    .form-control {
-        color: $state-danger-text;
-    }
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+body {
+  font-family: "PT Sans", Roboto, sans-serif;
 }

@@ -1,8 +1,8 @@
 <% title "Bem-vindo" %>
 <div class="jumbotron" style="text-align: center;">
-  <h1>
+  <h2>
     O maior site de publicações e recursos educativos da rede.
-  </h1>
+  </h2>
   <p>
     Descubra milhares de trabalhos, monografias e relatórios de estágio premium.
   </p>
@@ -14,11 +14,11 @@
 </div>
 <div class="row">
   <hr/>
-  <% if @monos.empty? %>
+  <% if !@monos.empty? %>
     <div class="col-md-6">
       <h3>+ Recentes</h3>
       <ul>
-        <% @monos.each do |mono| %>
+        <% @monos.order(:created_at).reverse_order.limit(10).each do |mono| %>
           <li><%= link_to mono.title, mono_path(id: mono.id) %></li>
         <% end %>
         <% if @monos.count > 10 %>
@@ -27,11 +27,11 @@
       </ul>
     </div>
   <% end %>
-  <% if @monos.empty? %>
+  <% if !@monos.empty? %>
     <div class="col-md-6">
       <h3>+ Populares</h3>
       <ul>
-        <% @monos.order(:counter).reverse_order.each do |mono| %>
+        <% @monos.order(:counter).reverse_order.limit(10).each do |mono| %>
           <li><%= link_to "#{mono.title} (#{mono.counter})", mono_path(id: mono.id) %></li>
         <% end %>
         <% if @monos.count > 10 %>

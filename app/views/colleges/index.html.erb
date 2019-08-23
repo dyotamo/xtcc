@@ -13,6 +13,6 @@
     </ul>
   </div>
   <div style="text-align: center;" class="panel-footer">
-    <%= will_paginate @colleges, renderer: BootstrapPagination::Rails %>
+    <%= will_paginate @colleges, renderer: BootstrapPagination::Rails, previous_label: "<<", next_label: ">>", page_links: false %>
   </div>
 </div>
