@@ -5,7 +5,7 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.order(:created_at).paginate(:page => params[:page], :per_page => 10)
+    @courses = Course.order(:name).paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /courses/1

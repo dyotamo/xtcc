@@ -5,7 +5,7 @@ class CollegesController < ApplicationController
   # GET /colleges
   # GET /colleges.json
   def index
-    @colleges = College.order(:created_at).paginate(:page => params[:page], :per_page => 10)
+    @colleges = College.order(:name).paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /colleges/1
