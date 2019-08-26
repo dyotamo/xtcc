@@ -30,7 +30,7 @@ class RequisitionsController < ApplicationController
     respond_to do |format|
       if @requisition.save
         # TODO dependendo da pessoa logada, ou mantém o redirect ou manda ao root
-        format.html { redirect_to root_path, notice: "Requisition was successfully created." }
+        format.html { redirect_to root_path, notice: "Solicitação feita com sucesso." }
         format.json { render :show, status: :created, location: @requisition }
       else
         format.html { render :new }

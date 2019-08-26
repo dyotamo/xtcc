@@ -42,7 +42,7 @@ class MonosController < ApplicationController
         # Remove requisition object
         Requisition.find_by(url: @mono.url).destroy
 
-        format.html { redirect_to @mono, notice: "Mono was successfully created." }
+        format.html { redirect_to @mono, notice: "Monografia indexada com sucesso." }
         format.json { render :show, status: :created, location: @mono }
       else
         format.html { render :new }
@@ -58,7 +58,7 @@ class MonosController < ApplicationController
 
     respond_to do |format|
       if @mono.update(mono_params)
-        format.html { redirect_to @mono, notice: "Mono was successfully updated." }
+        format.html { redirect_to @mono, notice: "Monografia actualizada com sucesso." }
         format.json { render :show, status: :ok, location: @mono }
       else
         format.html { render :edit }
@@ -72,7 +72,7 @@ class MonosController < ApplicationController
   def destroy
     @mono.destroy
     respond_to do |format|
-      format.html { redirect_to monos_url, notice: "Mono was successfully destroyed." }
+      format.html { redirect_to monos_url, notice: "Monografia eliminado com sucesso." }
       format.json { head :no_content }
     end
   end
