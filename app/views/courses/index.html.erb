@@ -1,18 +1,18 @@
 <% title "Todos os Cursos" %>
 <div class="panel panel-default">
-  <% if current_user %>
+    <% if current_user %>
     <div class="panel-heading">
-      <%= link_to 'Adicionar', new_course_path, class: "btn btn-primary btn-xs" %>
+        <%= link_to 'Adicionar', new_course_path, class: "btn btn-primary btn-xs" %>
     </div>
-  <% end %>
-  <div class="panel-body">
-    <ul>
-      <% @courses.each do |course|%>
-        <li><%= link_to course.name, course %></li>
-      <% end %>
-    </ul>
-  </div>
-  <div style="text-align: center;" class="panel-footer">
+    <% end %>
+    <div class="panel-body">
+        <ul>
+            <% @courses.each do |course|%>
+            <li><%= link_to course.name, course %></li>
+            <% end %>
+        </ul>
+    </div>
+</div>
+<div style="text-align: center;">
     <%= will_paginate @courses, renderer: BootstrapPagination::Rails, previous_label: "<<", next_label: ">>", page_links: false %>
-  </div>
 </div>

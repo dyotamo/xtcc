@@ -1,10 +1,15 @@
 class Mono < ApplicationRecord
+  extend FriendlyId
+
   belongs_to :college
   belongs_to :course
-  belongs_to :user
+
+  validates_uniqueness_of :title
 
   validates_presence_of :title, :year, :author, :abstract,
-                        :college, :course
+                        :college, :course                 
+
+  friendly_id :title, use: :slugged
 
   private
 

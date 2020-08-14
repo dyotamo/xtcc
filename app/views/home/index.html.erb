@@ -1,43 +1,23 @@
 <% title "Bem-vindo" %>
-<div class="jumbotron" style="text-align: center;">
-  <h2>
-    O maior site de publicações e recursos educativos da rede.
-  </h2>
-  <p>
-    Descubra milhares de trabalhos e monografias...
-  </p>
+<%= render "shared/banner" %>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <%= render "shared/search", value: '' %>
+    </div>
 </div>
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <%= render "shared/search", value: '' %>
-  </div>
-</div>
-<div class="row">
-  <hr/>
-  <% if !@monos.empty? %>
-    <div class="col-md-6">
-      <h3>+ Recentes</h3>
-      <ul>
-        <% @monos.order(:created_at).reverse_order.limit(10).each do |mono| %>
-          <li><%= link_to mono.title, mono_path(id: mono.id) %></li>
-        <% end %>
-        <% if @monos.count > 10 %>
-          <li><%= link_to '...', monos_path %></li>
-        <% end %>
-      </ul>
+    <hr />
+    <% if !@monos.empty? %>
+    <div class="col-md-8">
+        <h3>+ Recentes</h3>
+        <ul>
+            <% @monos.order(:created_at).reverse_order.limit(10).each do |mono| %>
+            <li><%= link_to mono.title, mono_path(id: mono.slug) %></li>
+            <% end %>
+            <% if @monos.count > 10 %>
+            <li><%= link_to '...', monos_path %></li>
+            <% end %>
+        </ul>
     </div>
-  <% end %>
-  <% if !@monos.empty? %>
-    <div class="col-md-6">
-      <h3>+ Populares</h3>
-      <ul>
-        <% @monos.order(:counter).reverse_order.limit(10).each do |mono| %>
-          <li><%= link_to "#{mono.title} (#{mono.counter})", mono_path(id: mono.id) %></li>
-        <% end %>
-        <% if @monos.count > 10 %>
-          <li><%= link_to '...', monos_path(sort: :counter) %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <% end %>
 </div>

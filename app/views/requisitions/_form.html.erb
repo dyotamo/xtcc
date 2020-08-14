@@ -1,13 +1,16 @@
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <%= form_with(model: @requisition, local: true) do |form| %>
-      <%= render "shared/error_messages", model: @requisition %>
-      <div class="input-group form-group">
-        <%= form.text_field :url, class: "form-control", placeholder: "Insira a link online do trabalho aqui..." %>
-        <span class="input-group-btn">
-          <%= form.submit 'Solicitar', class: "btn btn-default" %>
-        </span>
-      </div>
-    <% end %>
-  </div>
+    <%= render "shared/banner" %>
+    <div class="col-md-8 col-md-offset-2">
+        <%= form_with(model: @requisition, local: true) do |form| %>
+        <%= render "shared/error_messages", model: @requisition %>
+        <div class="input-group form-group">
+            <%= form.text_field :url, class: "form-control", placeholder: "Insira a link online do trabalho aqui..." %>
+            <span class="input-group-btn">
+                <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+                <span class="glyphicon glyphicon-send"></span>
+                <% end %>
+            </span>
+        </div>
+        <% end %>
+    </div>
 </div>

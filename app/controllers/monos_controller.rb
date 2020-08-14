@@ -3,7 +3,6 @@ class MonosController < ApplicationController
   before_action :set_mono, only: [:show, :edit, :update, :destroy]
 
   # GET /monos
-  # GET /monos.json
   def index
     if Mono.column_names.include?(params[:sort])
       sort = params[:sort]
@@ -17,7 +16,6 @@ class MonosController < ApplicationController
   end
 
   # GET /monos/1
-  # GET /monos/1.json
   def show
   end
 
@@ -31,49 +29,36 @@ class MonosController < ApplicationController
   end
 
   # POST /monos
-  # POST /monos.json
   def create
     @mono = Mono.new(mono_params)
-    @mono.user = current_user
-    @mono.counter = 0
 
     respond_to do |format|
       if @mono.save
         # Remove requisition object
         Requisition.find_by(url: @mono.url).destroy
-
         format.html { redirect_to @mono, notice: "Monografia indexada com sucesso." }
-        format.json { render :show, status: :created, location: @mono }
       else
         format.html { render :new }
-        format.json { render json: @mono.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PATCH/PUT /monos/1
-  # PATCH/PUT /monos/1.json
   def update
-    @mono.user = current_user
-
     respond_to do |format|
       if @mono.update(mono_params)
         format.html { redirect_to @mono, notice: "Monografia actualizada com sucesso." }
-        format.json { render :show, status: :ok, location: @mono }
       else
         format.html { render :edit }
-        format.json { render json: @mono.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /monos/1
-  # DELETE /monos/1.json
   def destroy
     @mono.destroy
     respond_to do |format|
       format.html { redirect_to monos_url, notice: "Monografia eliminado com sucesso." }
-      format.json { head :no_content }
     end
   end
 
@@ -81,7 +66,7 @@ class MonosController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_mono
-    @mono = Mono.find(params[:id])
+    @mono = Mono.friendly.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

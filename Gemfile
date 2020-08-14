@@ -72,9 +72,6 @@ gem "jquery-rails", "~> 4.3.3"
 # Swatch
 gem "bootswatch-rails", "~> 3.3.5"
 
-# Faker
-gem "faker", "~> 1.9.3"
-
 # Pagination
 gem "will_paginate", "~> 3.1.0"
 gem "will_paginate-bootstrap", "~> 1.0.2"
@@ -84,3 +81,5 @@ gem "devise", "~> 4.6.1"
 
 # Nokogiri
 gem "nokogiri", ">= 1.10.4"
+
+gem 'friendly_id', '~> 5.4.0'
