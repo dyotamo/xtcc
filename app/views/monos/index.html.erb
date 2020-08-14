@@ -1,22 +1,22 @@
 <% title "Todos os TCCs" %>
 <% if @monos.empty? %>
-  <h3>0 Trabalhos cadastrados</h3>
+<h3>0 Trabalhos cadastrados</h3>
 <% end %>
 <div class="panel panel-default">
-  <div class="panel-heading">
-    <% if current_user %>
-      <%= link_to 'Novo índice', new_mono_path, class: "btn btn-primary btn-xs" %>
-    <% end %>
-    <small>(<%= Mono.count %> trabalhos no total)</small>
-  </div>
-  <div class="panel-body">
-    <ul>
-      <% @monos.each do |mono|%>
-        <li><%= link_to mono.title, mono %></li>
-      <% end %>
-    </ul>
-  </div>
-  <div style="text-align: center;" class="panel-footer">
+    <div class="panel-heading">
+        <% if current_user %>
+        <%= link_to 'Novo índice', new_mono_path, class: "btn btn-primary btn-xs" %>
+        <% end %>
+        <small>(<%= Mono.count %> trabalhos no total)</small>
+    </div>
+    <div class="panel-body">
+        <ul>
+            <% @monos.each do |mono|%>
+            <li><%= link_to mono.title, mono %></li>
+            <% end %>
+        </ul>
+    </div>
+</div>
+<div style="text-align: center;">
     <%= will_paginate @monos, renderer: BootstrapPagination::Rails, previous_label: "<<", next_label: ">>", page_links: false %>
-  </div>
 </div>
