@@ -1,8 +1,8 @@
+<% title "Entrar" %>
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
         <div class="panel panel-default" style="padding: 20px;">
             <div class="panel-body">
-                <h2>Log in</h2>
                 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                 <% resource.errors.full_messages.each do |msg| %>
                 <%= msg %>
@@ -16,10 +16,9 @@
                     <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
                 </div>
                 <div class="actions form-group">
-                    <%= f.submit "Entrar", class: "btn btn-primary" %>
+                    <%= f.submit "Entrar", class: "btn btn-primary btn-block" %>
                 </div>
                 <% end %>
-                <%= link_to("Esquece a senha?", new_user_password_path) %>
             </div>
         </div>
     </div>
